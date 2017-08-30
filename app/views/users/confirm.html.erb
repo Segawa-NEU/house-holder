@@ -1,0 +1,18 @@
+<div class="centering-layout">
+  <div class="card center">
+    <div class="card-block text-center">
+      <% if flash[:alert] %>
+        <div class="alert alert-danger">
+           <%= flash[:alert] %>
+        </div>
+        <%= link_to "Go to Welcome Page", welcome_path, class:"btn btn-lg btn-primary" %>
+      <% end %>
+      <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <% flash[:notice] %>
+        </div>
+        <%= link_to "Go to Home Page", home_path, class:"btn btn-lg btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -5,6 +5,7 @@ class User < ApplicationRecord
   validates :username, :password, length: { minimum: 8}
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create }
   has_secure_password
+  belongs_to :house, optional: true
   def email_activate
     self.email_confirmed = true
     self.confirm_token = nil

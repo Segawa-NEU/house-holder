@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/confirm/:token', to: "users#confirm", as: :confirm
   get '/login', to: "sessions#new", as: :login
   post '/login', to: "sessions#create"
+  get '/home', to: "houses#show", as: :home
 end

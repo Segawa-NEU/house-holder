@@ -2,11 +2,11 @@
 <div class="centering-layout">
   <div class="card center">
     <div class="card-block">
-      <% if @user.errors.any? %>
+      <% if flash[:errors] %>
       <div class="alert alert-danger">
         <ul>
-          <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <% flash[:errors].each do |e| %>
+          <li><%= e %></li>
           <% end %>
         </ul>
       </div>

@@ -1,15 +1,17 @@
 class UsersController < ApplicationController
   def new
+    home_if_logged_in
     @user = User.new
   end
+
   def create
     @user = User.new(user_params)
     @user.email.downcase!
     if @user.save
       UserMailer.confirmation_email(@user).deliver
-      #TODO to home and confirmation email
-      render 'new'
+      redirect_to home_path
     else
+      flash.now[:errors] = @user.errors.full_messages
       render 'new'
     end
   end
@@ -18,11 +20,9 @@ class UsersController < ApplicationController
     user = User.find_by_confirm_token(params[:token])
     if user
       user.email_activate
-      #TODO redirect to home
-      redirect_to '/welcome' #temporal
+      flash[:notice] = "Email Successfully Verified!"
     else
-      # TODO send error somehow
-      redirect_to '/welcome' #temporal
+      flash[:alert] = "Oops! Something went wrong."
     end
   end
 

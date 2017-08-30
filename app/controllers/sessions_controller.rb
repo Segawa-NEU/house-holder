@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    home_if_logged_in
   end
 
   def create
@@ -7,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(session_params[:password])
       reset_session
       session[:user_id] = user.id
-      #TODO to home
+      redirect_to home_path;
     else
 
     end
