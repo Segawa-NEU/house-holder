@@ -26,23 +26,17 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  #mailer setting
-  config.action_mailer.raise_delivery_errors = true
-
-  config.action_mailer.perform_caching = false
-
+  # Setup the mailer config
   config.action_mailer.delivery_method = :smtp
-
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
-
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
-    address: '#{ENV["MAIL_SERVER_ADDRESS"]}',
-    port: 587,
-    domain: '#{ENV["MAIL_DOMAIN"]}',
-    user_name: '#{ENV["MAIL_USERNAME"]}',
-    password: '#{ENV["MAIL_PASSWORD"]}',
-    authentication: 'plain',
-    enable_starttls_auto: true
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :domain => 'house-holder.herokuapp.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
   }
 
   # Print deprecation notices to the Rails logger.
