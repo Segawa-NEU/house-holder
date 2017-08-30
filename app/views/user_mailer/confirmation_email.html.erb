@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row" style="height: 10vh;"></div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <div class="card text-center" style="padding: 5%; background-color: #fdfdfd;">
+        <div class="card-block">
+          <h1 class="text-center text-primary">
+            Welcome to House-Holder you are almost there!
+          </h1>
+          <h2 class="text-center text-primary">
+            Hi <%= @user.username %>, please confirm your email by clicking the
+            confirm button if you think this is mistake, please ignore!
+          </h2>
+          <%= link_to "Confirm", @url, { class: "btn btn-primary btn-lg active", style: "margin-top: 1em;"}%>
+        </div>
+      </div>
+    </div>
+    <div class="col-2"></div>
+  </div>
+  <div class="row" style="height: 10vh;"></div>
+</div>

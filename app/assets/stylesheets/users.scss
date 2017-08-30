@@ -1,0 +1,16 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Singnup Page Content Layout
+#signup-content {
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: 5vw 90vw 5vw;
+  grid-template-rows: 1fr 5vw auto 5vw 1fr;
+}
+
+#signup-card {
+  grid-column: 2;
+  grid-row: 3;
+}

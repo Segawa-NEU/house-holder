@@ -1,0 +1,147 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+//   Utilities
+// Color
+$text-color: #343434;
+$base-color: #ffffff;
+$base-accent-color: #fdfdfd;
+$primary-color: #F39C12;
+$primary-accent-color: #F9BF3B;
+$brand-primary: $primary-color;
+$brand-success: $primary-accent-color;
+.btn-primary {
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+  &:hover {
+    background-color: $brand-success;
+    border-color: $brand-primary;
+  }
+}
+h1, h2, h3, h4, h5, h6 {
+  color: $text-color;
+}
+
+//    Main Layout
+// Navigation Layout
+.nav-layout {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 7vh auto 7vh;
+  grid-template-areas:
+  "brand header"
+  "main main"
+  "footer footer";
+}
+
+@media screen and ( max-width:750px ) {
+  .nav-layout {
+    min-width: 100vw;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 7vh 7vh auto 7vh;
+    grid-template-areas:
+    "brand"
+    "header"
+    "main"
+    "footer";
+  }
+}
+
+//   Content Layout
+// Centering Layout
+.centering-layout {
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: 5vw 90vw 5vw;
+  grid-template-rows: 1fr 5vw auto 5vw 1fr;
+}
+
+.center {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+
+
+//   Components
+// Brand
+.brand {
+  grid-area: brand;
+}
+.header {
+  grid-area: header;
+}
+.main {
+  grid-area: main;
+}
+.footer {
+  grid-area: footer;
+}
+
+// Fixed background
+.fixed-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  z-index: -1;
+}
+
+// Brand
+.brand {
+  background-color: $base-color;
+  width: 100%;
+  height: 100%;
+  color: $brand-primary;
+}
+
+// Header
+.header {
+  background-color: $base-color;
+  width: 100%;
+  height: 100%;
+  a{
+    color: $brand-primary;
+  }
+  a:hover{
+    color: $primary-accent-color;
+  }
+}
+
+// Footer
+.footer {
+  background-color: $base-accent-color;
+  width: 100%;
+  height: 100%;
+  h4 {
+    color: $brand-primary;
+  }
+}
+
+// Card
+.card {
+  box-sizing: border-box;
+}
+
+.card-block {
+  margin: 5%;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render :partial => 'shared/ie9_shim'%>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  </head>
+  <body>
+    <%= render :partial => 'shared/fixed_background' %>
+    <div class="nav-layout">
+      <%= render :partial => 'shared/brand' %>
+      <%= render :partial => 'shared/header' %>
+      <main class="main">
+        <%= yield %>
+      </main>
+      <%= render :partial => 'shared/footer' %>
+    </div>
+  </body>
+</html>
