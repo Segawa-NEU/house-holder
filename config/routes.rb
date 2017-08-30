@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
   get '/welcome', to: "welcome#index", as: :welcome
   get '/' => redirect('/welcome')
   get '/signup', to: "users#new", as: :signup
