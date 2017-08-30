@@ -58,6 +58,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Setup the mailer config
+  config.action_mailer.default_url_options = { host: 'house-holder.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
