@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170830185418) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "email_confirmed"
+    t.boolean "email_confirmed", default: false
     t.string "confirm_token"
   end
 
